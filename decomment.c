@@ -3,7 +3,7 @@
 
 enum Statetype {NORMAL, SLASH, IN_COMMENT, END_STAR, DOUBLE_QUOTE, SINGLE_QUOTE, DQ_BACKSLASH, SQ_BACKSLASH};
 
-enum Stateype 
+enum Statetype 
 handleNormalState(int c){
     enum Statetype state;
     if (c == '/'){
@@ -54,8 +54,8 @@ handleInCommentState(int c){
         if (c == '\n'){
             putchar(c);
         }
-        return state;
     }
+    return state;
 }
 
     enum Statetype
@@ -175,5 +175,7 @@ int main(void){
         exit(EXIT_FAILURE);
     }
     return 0;
+
+
 }
 
