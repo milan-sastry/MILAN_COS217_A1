@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-
+#include <stdlib.h>
 enum Statetype {NORMAL, SLASH, IN_COMMENT, END_STAR, DOUBLE_QUOTE, SINGLE_QUOTE, DQ_BACKSLASH, SQ_BACKSLASH};
 
 enum Statetype 
@@ -172,7 +172,7 @@ int main(void){
 
     if (state == IN_COMMENT || state == END_STAR){
         fprintf(stderr, "Error: line %d: unterminated comment\n",line);
-        exit(-1);
+        return EXIT_FAILURE;
     }
     return 0;
 
