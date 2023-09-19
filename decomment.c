@@ -171,8 +171,8 @@ int main(void){
     }
 
     if (state == IN_COMMENT || state == END_STAR){
-        fprintf(stderr, "Error: line " + line +": unterminated comment\n");
-        exit(EXIT_FAILURE);
+        fprintf(stderr, "Error: line %d: unterminated comment\n",line);
+        exit(-1);
     }
     return 0;
 
