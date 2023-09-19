@@ -3,7 +3,7 @@
 
 enum Statetype {NORMAL, SLASH, IN_COMMENT, END_STAR, DOUBLE_QUOTE, SINGLE_QUOTE, DQ_BACKSLASH, SQ_BACKSLASH};
 
-enum Stateype 
+enum Statetype 
 handleNormalState(int c){
     enum Stateype state;
     if (c == '/'){
@@ -26,12 +26,12 @@ handleNormalState(int c){
 
 enum Statetype
 handleSlashState(int c){
-    Statetype state;
-    if (c == "/"){
+    enum Statetype state;
+    if (c == '/'){
         state = SLASH;
         putchar(c);
     }
-    else if (c == "*"){
+    else if (c == '*'){
         state = IN_COMMENT;
         putchar(' ');
     }
@@ -45,7 +45,7 @@ handleSlashState(int c){
 
 enum Statetype
 handleInCommentState(int c){
-    Statetype state;
+    enum Statetype state;
     if (c == '*'){
         state = END_STAR;
     }
@@ -60,7 +60,7 @@ handleInCommentState(int c){
 
     enum Statetype
     handleEndStarState(int c){
-        Statetype state;
+        enum Statetype state;
         if (c == '/'){
             state = NORMAL;
         }
@@ -75,13 +75,13 @@ handleInCommentState(int c){
 
     enum Statetype
     handleDoubleQuoteState(int c){
-        Statetype state;
+        enum Statetype state;
         if (c == '"'){
             state = NORMAL;
             putchar(c);
         }
         else if (c == '\\'){
-            state = DQ_BACKSLASH
+            state = DQ_BACKSLASH;
             putchar(c);
         }
         else{
@@ -93,13 +93,13 @@ handleInCommentState(int c){
 
     enum Statetype
     handleSingleQuoteState(int c){
-        Statetype state;
+        enum Statetype state;
         if (c == '\''){
             state = NORMAL;
             putchar(c);
         }
         else if (c == '\\'){
-            state = SQ_BACKSLASH
+            state = SQ_BACKSLASH;
             putchar(c);
         }
         else{
@@ -111,7 +111,7 @@ handleInCommentState(int c){
 
     enum Statetype
     handleDQBackslash(int c){
-        Statetype state;
+        enum Statetype state;
         state = DOUBLE_QUOTE;
         putchar(c);
         return state;
@@ -119,7 +119,7 @@ handleInCommentState(int c){
 
     enum Statetype
     handleSQBackslash(int c){
-        Statetype state;
+        enum Statetype state;
         state = SINGLE_QUOTE;
         putchar(c);
         return state;
@@ -175,8 +175,6 @@ int main(void){
         exit(EXIT_FAILURE);
     }
     return 0;
-
-
 
 
 }
