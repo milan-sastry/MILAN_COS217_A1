@@ -54,8 +54,8 @@ handleInCommentState(int c){
         if (c == '\n'){
             putchar(c);
         }
-        return state;
     }
+    return state;
 }
 
     enum Statetype
@@ -169,6 +169,12 @@ int main(void){
     {
         updateState(c,line,state);
     }
+
+    if (state == IN_COMMENT || state == END_STAR){
+        fprintf(stderr, "Error: line " + line +": unterminated comment\n");
+        exit(EXIT_FAILURE);
+    }
+    return 0;
 
 
 
