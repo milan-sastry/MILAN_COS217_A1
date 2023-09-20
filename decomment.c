@@ -125,8 +125,8 @@ handleInCommentState(int c){
         return state;
     }
 
-
-    void updateState(int c, int lineNumber, enum Statetype state){
+    enum Statetype
+    updateState(int c, int lineNumber, enum Statetype state){
         if (c == '\n'){
             lineNumber++;
         }
@@ -158,6 +158,7 @@ handleInCommentState(int c){
                 state = handleSQBackslash(c);
                 break;
         }
+        return state;
 
     }
 
@@ -165,9 +166,10 @@ int main(void){
     int c;
     int line = 1;
     enum Statetype state = NORMAL;
+    
     while ((c = getchar()) != EOF)
     {
-        updateState(c,line,state);
+       state = updateState(c,line,state); 
     }
 
     if (state == IN_COMMENT || state == END_STAR){
