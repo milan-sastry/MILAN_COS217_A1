@@ -1,26 +1,32 @@
 NORMAL (accept)
     /: SLASH
+    ": DOUBLE_QUOTE
+    ': SINGLE_QUOTE
     other: NORMAL
 SLASH (accept)
     /: SLASH
     *: START_STAR
+    ": DOUBLE_QUOTE
+    ': SINGLE_QUOTE
     other: NORMAL
-START_STAR (reject)
+IN_COMMENT (reject)
     *: END_STAR
     other: START_STAR
 END_STAR (reject)
     /: NORMAL
     *: END_STAR
+    other: IN_COMMENT
 DOUBLE_QUOTE (accept)
     ": NORMAL
-    \: DQBACKSLASH
+    \: DQ_BACKSLASH
     other: DOUBLE_QUOTE
 SINGLE_QUOTE (accept)
     ': NORMAL
-    \: SQBACKSLASH
+    \: SQ_BACKSLASH
     other: SINGLE_QUOTE
-DQBACKSLASH (accept)
+DQ_BACKSLASH (accept)
     any: DOUBLE_QUOTE
-SQBACKSLASH (accept)
+SQ_BACKSLASH (accept)
     any: SINGLE_QUOTE
+
 
