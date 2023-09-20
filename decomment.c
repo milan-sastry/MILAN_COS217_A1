@@ -175,7 +175,7 @@ handleInCommentState(int c){
 
 int main(void){
     int c;
-    int lime = 0;
+    int line = 1;
     int lastComment = 0;
     enum Statetype state = NORMAL;
     
@@ -197,7 +197,7 @@ int main(void){
         putchar('/');
     }
     else if (state == IN_COMMENT || state == END_STAR){
-        fprintf(stderr, "Error: line %d: unterminated comment\n",line);
+        fprintf(stderr, "Error: line %d: unterminated comment\n",line - lastComment);
         return EXIT_FAILURE;
     }
     return 0;
