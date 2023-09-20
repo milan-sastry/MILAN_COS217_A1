@@ -131,6 +131,8 @@ handleDQBackslash(int c){
     return state;
  }
 
+/*Handles state when backslash is encountered
+after a single quote*/
 enum Statetype
 handleSQBackslash(int c){
     enum Statetype state;
@@ -139,6 +141,7 @@ handleSQBackslash(int c){
     return state;
 }
 
+/*Updates state and calls the corresponding state handler*/
 enum Statetype
 updateState(int c, enum Statetype state){
 
@@ -175,8 +178,14 @@ updateState(int c, enum Statetype state){
 
 int main(void){
     int c;
+
+    /*Tracks total number of lines*/
     int line = 1;
+
+    /*Tracks number of lines since the start of last comment*/
     int lastComment = 0;
+
+    /*Starting state*/
     enum Statetype state = NORMAL;
     
     while ((c = getchar()) != EOF)
