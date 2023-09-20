@@ -206,7 +206,8 @@ int main(void){
         putchar('/');
     }
     else if (state == IN_COMMENT || state == END_STAR){
-        fprintf(stderr, "Error: line %d: unterminated comment\n",line - lastComment);
+        fprintf(stderr, "Error: line %d: 
+                unterminated comment\n",line - lastComment);
         return EXIT_FAILURE;
     }
     return 0;
