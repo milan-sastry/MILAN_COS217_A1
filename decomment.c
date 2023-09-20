@@ -4,6 +4,7 @@
 enum Statetype {NORMAL, SLASH, IN_COMMENT, END_STAR, DOUBLE_QUOTE, 
                 SINGLE_QUOTE, DQ_BACKSLASH, SQ_BACKSLASH};
 
+/*Handles normal state*/
 enum Statetype 
 handleNormalState(int c){
     enum Statetype state;
@@ -25,6 +26,7 @@ handleNormalState(int c){
     return state;
 }
 
+/*Handles state for when a slash is encountered*/
 enum Statetype
 handleSlashState(int c){
     enum Statetype state;
@@ -54,6 +56,8 @@ handleSlashState(int c){
     return state;
 }
 
+/*Handles state for when in a comment, when
+a star has been encountered after a slash*/
 enum Statetype
 handleInCommentState(int c){
     enum Statetype state;
@@ -69,6 +73,8 @@ handleInCommentState(int c){
     return state;
 }
 
+/*Handles state after a star is encountered, while already
+in a comment*/
 enum Statetype
 handleEndStarState(int c){
     enum Statetype state;
@@ -87,6 +93,7 @@ handleEndStarState(int c){
     return state;
  }
 
+/*Handles state after a double quote is encountered*/
 enum Statetype
 handleDoubleQuoteState(int c){
     enum Statetype state;
@@ -105,6 +112,7 @@ handleDoubleQuoteState(int c){
     return state;
 }
 
+/*Handles state after a single quote is encountered*/
 enum Statetype
 handleSingleQuoteState(int c){
     enum Statetype state;
@@ -123,6 +131,8 @@ handleSingleQuoteState(int c){
     return state;
 }
 
+/*Handles state when backslash is encountered
+after a double quote*/
 enum Statetype
 handleDQBackslash(int c){
     enum Statetype state;
