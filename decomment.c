@@ -40,7 +40,11 @@ handleSlashState(int c){
         putchar('/');
         putchar(c);
     }
-
+    else if(c == '\''){
+        state = SINGLE_QUOTE;
+        putchar('/');
+        putchar(c);
+    }
     else{
         state = NORMAL;
         putchar('/');
@@ -75,6 +79,9 @@ handleInCommentState(int c){
         }
         else{
             state = IN_COMMENT;
+            if (c == '\n'){
+            putchar(c);
+        }
         }
         return state;
     }
@@ -132,10 +139,8 @@ handleInCommentState(int c){
     }
 
     enum Statetype
-    updateState(int c, int lineNumber, enum Statetype state){
-        if (c == '\n'){
-            lineNumber++;
-        }
+    updateState(int c, enum Statetype state){
+        
 
         switch(state){
 
@@ -175,10 +180,16 @@ int main(void){
     
     while ((c = getchar()) != EOF)
     {
-       state = updateState(c,line,state); 
+         if (c == '\n'){
+            line++;
+        }
+       state = updateState(c, state); 
     }
 
-    if (state == IN_COMMENT || state == END_STAR){
+    if (state == SLASH){
+        putchar('/');
+    }
+    else if (state == IN_COMMENT || state == END_STAR){
         fprintf(stderr, "Error: line %d: unterminated comment\n",line);
         return EXIT_FAILURE;
     }
