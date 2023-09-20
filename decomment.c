@@ -175,7 +175,7 @@ handleInCommentState(int c){
 
 int main(void){
     int c;
-    int line = 1;
+    int line = 0;
     enum Statetype state = NORMAL;
     
     while ((c = getchar()) != EOF)
