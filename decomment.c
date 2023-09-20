@@ -175,13 +175,20 @@ handleInCommentState(int c){
 
 int main(void){
     int c;
-    int line = 0;
+    int lime = 0;
+    int lastComment = 0;
     enum Statetype state = NORMAL;
     
     while ((c = getchar()) != EOF)
     {
          if (c == '\n'){
             line++;
+            if (state == IN_COMMENT || state == END_STAR){
+                lastComment++;
+            }
+            else{
+                lastComment = 0;
+            }
         }
        state = updateState(c, state); 
     }
