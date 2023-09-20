@@ -35,6 +35,12 @@ handleSlashState(int c){
         state = IN_COMMENT;
         putchar(' ');
     }
+    else if(c == '"'){
+        state = DOUBLE_QUOTE;
+        putchar('/');
+        putchar(c);
+    }
+
     else{
         state = NORMAL;
         putchar('/');
