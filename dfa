@@ -5,13 +5,13 @@ NORMAL (accept)
     other: NORMAL
 SLASH (accept)
     /: SLASH
-    *: START_STAR
+    *: IN_COMMENT
     ": DOUBLE_QUOTE
     ': SINGLE_QUOTE
     other: NORMAL
 IN_COMMENT (reject)
     *: END_STAR
-    other: START_STAR
+    other: IN_COMMENT
 END_STAR (reject)
     /: NORMAL
     *: END_STAR
