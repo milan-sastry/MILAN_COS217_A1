@@ -797,7 +797,7 @@ handleEndStarState(int c){
         }
     }
     return state;
- }
+}
 
 
 enum Statetype
@@ -845,7 +845,7 @@ handleDQBackslash(int c){
     state = DOUBLE_QUOTE;
     putchar(c);
     return state;
- }
+}
 
 
 
@@ -860,8 +860,6 @@ handleSQBackslash(int c){
 
 enum Statetype
 updateState(int c, enum Statetype state){
-
-
     switch(state){
 
         case NORMAL:
@@ -893,6 +891,7 @@ updateState(int c, enum Statetype state){
 }
 
 int main(void){
+
     int c;
 
 
@@ -905,12 +904,12 @@ int main(void){
     enum Statetype state = NORMAL;
 
     while ((c = getchar()) != 
-# 201 "decomment.c" 3 4
+# 200 "decomment.c" 3 4
                              (-1)
-# 201 "decomment.c"
+# 200 "decomment.c"
                                 )
     {
-         if (c == '\n'){
+        if (c == '\n'){
             line++;
             if (state == IN_COMMENT || state == END_STAR){
                 lastComment++;
@@ -927,15 +926,15 @@ int main(void){
     }
     else if (state == IN_COMMENT || state == END_STAR){
         fprintf(
-# 219 "decomment.c" 3 4
+# 218 "decomment.c" 3 4
                stderr
-# 219 "decomment.c"
+# 218 "decomment.c"
                      ,
                 "Error: line %d: unterminated comment\n",line - lastComment);
         return 
-# 221 "decomment.c" 3 4
+# 220 "decomment.c" 3 4
               1
-# 221 "decomment.c"
+# 220 "decomment.c"
                           ;
     }
     return 0;
