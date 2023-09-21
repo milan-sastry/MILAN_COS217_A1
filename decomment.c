@@ -91,7 +91,7 @@ handleEndStarState(int c){
         }
     }
     return state;
- }
+}
 
 /*Handles state after a double quote is encountered*/
 enum Statetype
@@ -139,7 +139,7 @@ handleDQBackslash(int c){
     state = DOUBLE_QUOTE;
     putchar(c);
     return state;
- }
+}
 
 /*Handles state when backslash is encountered
 after a single quote*/
@@ -221,4 +221,3 @@ int main(void){
     }
     return 0;
 }
-
