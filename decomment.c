@@ -187,6 +187,7 @@ updateState(int c, enum Statetype state){
 }
 
 int main(void){
+    /*Next character from standard input*/
     int c;
 
     /*Tracks total number of lines*/
@@ -200,7 +201,7 @@ int main(void){
     
     while ((c = getchar()) != EOF)
     {
-         if (c == '\n'){
+        if (c == '\n'){
             line++;
             if (state == IN_COMMENT || state == END_STAR){
                 lastComment++;
