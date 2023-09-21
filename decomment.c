@@ -56,7 +56,7 @@ handleSlashState(int c){
     return state;
 }
 
-/*Handles state for when in a comment, when
+/*Handles state for when in a comment, for when
 a star has been encountered after a slash*/
 enum Statetype
 handleInCommentState(int c){
@@ -154,8 +154,6 @@ handleSQBackslash(int c){
 /*Updates state and calls the corresponding state handler*/
 enum Statetype
 updateState(int c, enum Statetype state){
-
-
     switch(state){
 
         case NORMAL:
